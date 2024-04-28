@@ -1,4 +1,4 @@
-print("I'm gonna make this extruder disappear")
+textutils.slowPrint("I'm gonna make this extruder disappear", 15)
 print("Fuel level: " .. turtle.getFuelLevel()/640 .. "%")
 
 function prepareToWork()
@@ -46,7 +46,7 @@ function getToWork()
   elseif gtnm == extrd and rstop ~= true then
    turtle.dig()
    giveItBack()
-   print("Ta da! It's... It's gone.")
+   textutils.slowPrint(("Ta da! It's... It's gone.", 15)
    os.sleep(.5)
   end
  end
