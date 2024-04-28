@@ -34,7 +34,7 @@ function getToWork()
   success = gtnm == extrd
 
   if gtnm == extrd and rstop == true then
-   print("Machine is still working!")
+   printError("Machine is still working!")
    os.sleep(.5)
   elseif gtnm ~= extrd and rstop == true then
    while not success do
