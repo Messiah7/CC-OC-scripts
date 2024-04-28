@@ -1,5 +1,6 @@
-print(" ")
+print("I'm gonna make this extruder disappear")
 print("Fuel level: " .. turtle.getFuelLevel()/640 .. "%")
+
 function prepareToWork()
  getTheFuel()
 end
@@ -33,20 +34,19 @@ function getToWork()
   success = gtnm == extrd
 
   if gtnm == extrd and rstop == true then
-   print("WORK")
+   print("Machine is still working!")
    os.sleep(.5)
   elseif gtnm ~= extrd and rstop == true then
    while not success do
     turtle.turnLeft()
     turtle.turnLeft()
-    print("TURN")
     os.sleep(.5)
    break
    end
   elseif gtnm == extrd and rstop ~= true then
    turtle.dig()
    giveItBack()
-   print("DIG")
+   print("Ta da! It's... It's gone.")
    os.sleep(.5)
   end
  end
