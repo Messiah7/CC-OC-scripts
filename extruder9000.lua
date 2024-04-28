@@ -8,7 +8,7 @@ function getTheFuel()
   if turtle.getFuelLevel()/640 < 30 then
    turtle.select(16)
    while turtle.getFuelLevel()/640 < 80 do
-    if not turtle.suckDown(32) then return false end
+    if not turtle.suckDown(64) then return false end
     turtle.refuel()
     print("Fuel level: " .. turtle.getFuelLevel()/640 .. "%")
    end
