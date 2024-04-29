@@ -46,7 +46,7 @@ function getToWork()
   elseif gtnm == extrd and rstop ~= true then
    turtle.dig()
    giveItBack()
-   textutils.slowPrint(("Ta da! It's... It's gone.", 15)
+   textutils.slowPrint("Ta da! It's... It's gone.", 15)
    os.sleep(.5)
   end
  end
