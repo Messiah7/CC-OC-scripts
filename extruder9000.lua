@@ -21,9 +21,10 @@ end
 function giveItBack()
  turtle.turnLeft()
  turtle.turnLeft()
- turtle.drop()
- turtle.select(2)
- turtle.drop()
+ for i=1, 4 do
+  turtle.drop()
+  turtle.select(i)
+ end
  getTheFuel()
 end
 function getToWork()
@@ -45,6 +46,7 @@ function getToWork()
    end
   elseif gtnm == extrd and rstop ~= true then
    turtle.dig()
+   turtle.place()
    giveItBack()
    textutils.slowPrint("Ta da! It's... It's gone.", 15)
    os.sleep(.5)
