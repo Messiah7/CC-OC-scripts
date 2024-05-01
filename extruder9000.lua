@@ -22,13 +22,10 @@ function giveItBack()
  turtle.turnLeft()
  turtle.turnLeft()
  turtle.drop()
- turtle.select(1)
- turtle.drop()
- turtle.select(2)
- turtle.drop()
- turtle.select(3)
- turtle.drop()
- turtle.select(4)
+ for i = 1, 4 do
+  turtle.select(i)
+  turtle.drop()
+ end
  getTheFuel()
 end
 function getToWork()
