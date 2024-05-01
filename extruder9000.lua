@@ -21,11 +21,16 @@ end
 function giveItBack()
  turtle.turnLeft()
  turtle.turnLeft()
- turtle.drop()
- for i = 1, 4 do
-  turtle.select(i)
+ --for i = 1, 4 do
+  turtle.select(1)
   turtle.drop()
- end
+  turtle.select(2)
+  turtle.drop()
+  turtle.select(3)
+  turtle.drop()
+  turtle.select(4)
+  turtle.drop()
+-- end
  getTheFuel()
 end
 function getToWork()
