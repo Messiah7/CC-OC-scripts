@@ -2,6 +2,7 @@ textutils.slowPrint("I'm gonna make this extruder disappear", 15)
 print("Fuel level: " .. turtle.getFuelLevel()/640 .. "%")
 
 function prepareToWork()
+
  getTheFuel()
 end
 
@@ -15,29 +16,21 @@ function getTheFuel()
    end
   end
  turtle.select(1)
+ 
  getToWork()
 end
 
 function giveItBack()
- turtle.turnLeft()
- turtle.turnLeft()
- --for i = 1, 4 do
-  turtle.select(1)
-  turtle.drop()
-  turtle.select(2)
-  turtle.drop()
-  turtle.select(3)
-  turtle.drop()
-  turtle.select(4)
-  turtle.drop()
--- end
+--Currently not used due importing mold from turtle via AE2
  getTheFuel()
 end
+
 function getToWork()
  while true do
-  gtnm = ({turtle.inspect()})[2].name
+  gtnm = ({turtle.inspectUp()})[2].name
   extrd = "gtceu:mv_extruder"
-  rstop = rs.getInput("top")
+  event = os.pullEvent("redstone") 
+  rstop = rs.getInput("left")
   success = gtnm == extrd
 
   if gtnm == extrd and rstop == true then
@@ -45,17 +38,21 @@ function getToWork()
    os.sleep(.5)
   elseif gtnm ~= extrd and rstop == true then
    while not success do
-    turtle.turnLeft()
-    turtle.turnLeft()
-    os.sleep(.5)
+    printError("No machine found!")
+    os.sleep(1.5)
    break
    end
-  elseif gtnm == extrd and rstop ~= true then
-   turtle.dig()
-   turtle.place()
-   giveItBack()
-   textutils.slowPrint("Ta da! It's... It's gone.", 15)
-   os.sleep(.5)
+  end
+   
+  if event == "redstone" then
+   if gtnm == extrd and rstop ~= true then
+    turtle.digUp()
+    turtle.placeUp()
+    textutils.slowPrint("Ta da! It's... It's gone.", 15)
+    os.sleep(.5)
+	
+    giveItBack()
+   end
   end
  end
 end
