@@ -34,8 +34,8 @@ function getToWork()
   success = gtnm == extrd
 
   if gtnm == extrd and rstop == true then
-   printError("Machine is still working!")
-   os.sleep(.5)
+--   printError("Machine is still working!")
+   os.sleep(.05)
   elseif gtnm ~= extrd and rstop == true then
    while not success do
     printError("No machine found!")
@@ -49,7 +49,7 @@ function getToWork()
     turtle.digUp()
     turtle.placeUp()
     textutils.slowPrint("Ta da! It's... It's gone.", 15)
-    os.sleep(.5)
+    os.sleep(.05)
 	
     giveItBack()
    end
