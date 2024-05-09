@@ -10,7 +10,7 @@ function getTheFuel()
   if turtle.getFuelLevel()/640 < 30 then
    turtle.select(16)
    while turtle.getFuelLevel()/640 < 80 do
-    if not turtle.suckDown(64) then return false end
+    if not turtle.suck(64) then return false end
     turtle.refuel()
     print("Fuel level: " .. turtle.getFuelLevel()/640 .. "%")
    end
@@ -30,7 +30,7 @@ function getToWork()
   gtnm = ({turtle.inspectUp()})[2].name
   extrd = "gtceu:mv_extruder"
   event = os.pullEvent("redstone") 
-  rstop = rs.getInput("left")
+  rstop = rs.getInput("bottom")
   success = gtnm == extrd
 
   if gtnm == extrd and rstop == true then
